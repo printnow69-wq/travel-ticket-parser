@@ -1,6 +1,6 @@
-const express = require('express');
-const multer = require('multer');
-const { GoogleGenAI } = require('@google/genai');
+import express from 'express';
+import multer from 'multer';
+import { GoogleGenAI } from '@google/genai';
 
 // 1. Initialize Express app and setup storage
 const app = express();
