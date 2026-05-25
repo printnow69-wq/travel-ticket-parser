@@ -57,7 +57,7 @@ app.post('/api/webhook/email', multerMiddleware.single('file'), async (req, res)
 
         const parsedData = JSON.parse(response.text);
 
-        const parsedData = JSON.parse(response.text);
+        
         
         console.log("=================================");
         console.log("SUCCESSFULLY EXTRACTED TICKET:");
