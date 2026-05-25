@@ -46,7 +46,7 @@ app.post('/api/webhook/email', multerMiddleware.single('file'), async (req, res)
         console.log("Sending data payload to Gemini 1.5 Flash...");
         
         // Call Gemini 1.5 Flash (handles both image files and plain text flawlessly)
-        const response = await ai.models.generateContent({
+         const response = await ai.models.generateContent({
             model: 'gemini-1.5-flash',
             contents: geminiContents,
             config: { responseMimeType: "application/json" }
