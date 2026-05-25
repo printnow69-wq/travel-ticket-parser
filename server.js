@@ -43,14 +43,19 @@ app.post('/api/webhook/email', multerMiddleware.single('file'), async (req, res)
             "Extract the following travel details from the provided image or text. Return a clean JSON object with these keys: airline, confirmation_code, passenger_name, flight_number, departure_airport, arrival_airport. If a detail cannot be found, set its value to null."
         );
 
-        console.log("Sending data payload to Gemini 1.5 Flash...");
+        
         
         // Call Gemini 1.5 Flash (handles both image files and plain text flawlessly)
+        console.log("Sending data payload to Gemini...");
+        
+        // Upgraded to the current generation flash model to resolve the endpoint 404
         const response = await ai.models.generateContent({
-            model: 'gemini-1.5-flash',
+            model: 'gemini-2.5-flash', 
             contents: geminiContents,
             config: { responseMimeType: "application/json" }
         });
+
+        const parsedData = JSON.parse(response.text);
 
         const parsedData = JSON.parse(response.text);
         
